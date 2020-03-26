@@ -1,0 +1,31 @@
+.register-container{
+
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+#content{
+  box-shadow: 0 0 100px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+img{
+  max-width: 100%;
+}
+
+h1 {
+  margin: 64px 0 32px;
+  font-size: 32px;
+}
+p{
+  font-size: 18px;
+  color: #737380;
+  line-height: 32px;
+}
+form input{
+  margin-top: 8px;
+}
+
+
