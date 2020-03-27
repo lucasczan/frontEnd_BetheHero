@@ -1,4 +1,4 @@
-.register-container{
+.new-incident-container{
 
   height: 100vh;
   display: flex;
@@ -11,15 +11,15 @@
   box-shadow: 0 0 100px rgba(0,0,0,0.1);
   border-radius: 8px;
 }
-.register-container img{
+.new-incident-container img{
   max-width: 100%;
 }
 
-.register-container h1 {
+.new-incident-container h1 {
   margin: 64px 0 32px;
   font-size: 32px;
 }
-.register-container p{
+.new-incident-container p{
   font-size: 18px;
   color: #737380;
   line-height: 32px;

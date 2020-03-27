@@ -1,11 +1,26 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './style.css'
 import heroesImg from '../../assets/heroes.png'
 import logo from '../../assets/logo.svg'
 import { FiLogIn } from 'react-icons/fi'
-import { Link } from 'react-router-dom'
-
+import { Link, useHistory } from 'react-router-dom'
+import api from '../../services/api'
 export default function Logon() {
+  const [id,setId] = useState('')
+  const history = useHistory('')
+  async function handleLogin(e){
+    e.preventDefault();
+    console.log(id)
+    try {
+      const response = await api.post('sessions',{id});
+      
+      localStorage.setItem('ongId',id);
+      localStorage.setItem('ongName', response.data.name)
+      history.push('/profile')
+    } catch (error) {
+      alert('erro')
+    }
+  }
   return (
     <div className="logon-container">
 
@@ -15,9 +30,9 @@ export default function Logon() {
 
           <div className="col-12 col-md-6 p-5" id="form-container">
             <img src={logo} alt="" id="logo" />
-            <form action="" className="logon-form">
+            <form onSubmit={handleLogin} className="logon-form">
               <h1>Faça seu logon</h1>
-              <input type="text" placeholder="Sua ID" />
+              <input type="text" placeholder="Sua ID"  value={id} onChange={e => setId(e.target.value)}/>
               <button type="submit" className="button">Entrar</button>
               <br />
               <Link className="back-link" to="/register">
